@@ -115,6 +115,9 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     else if (item.label === 'About') {
       onNavigate('about');
     }
+    else if (item.label === 'Gallery') {
+      onNavigate('gallery');
+    }
     else if ((!subItem && item.href.startsWith('#')) || (subItem && subItem.href.startsWith('#'))) {
       onNavigate('home');
       const hash = subItem ? subItem.href : item.href;
