@@ -63,13 +63,11 @@ const navItems: NavItem[] = [
 
 const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigate }) => {
   const navigate = useNavigate();
-  // ... state ...
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
-  // Theme State
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') || 'light';
@@ -77,7 +75,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     return 'light';
   });
 
-  // Handle Scroll
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
@@ -89,7 +86,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
-  // Handle Theme Change
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -106,26 +102,18 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
   const handleNavClick = (e: React.MouseEvent, item: NavItem, subItem?: NavItem) => {
     e.preventDefault();
 
-    // If it's the scholars link
     if ((subItem && subItem.label === 'Scholars') || (item.label === 'Scholars')) {
       onNavigate('scholars');
     }
-    // News Link
     else if (item.label === 'News') {
       onNavigate('news');
     }
-    // About Link
     else if (item.label === 'About') {
       onNavigate('about');
     }
-    // Hash links
     else if ((!subItem && item.href.startsWith('#')) || (subItem && subItem.href.startsWith('#'))) {
-      // Navigate to home then hash
       onNavigate('home');
       const hash = subItem ? subItem.href : item.href;
-      // Attempt to scroll to hash manually if we are already on home page, 
-      // but App.tsx handles 'home' -> navigate('/')
-      // We can iterate to find the element and scroll
       setTimeout(() => {
         const element = document.querySelector(hash);
         if (element) {
@@ -140,7 +128,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     }
   };
 
-  // Dynamic styling based on scroll state
   const headerClasses = scrolled
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-0'
     : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4';
@@ -172,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
             {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
-          {user ? (
+          {user && (
             <div className="flex items-center gap-4 ml-4 pl-4 border-l border-white/20">
               <span className={`text-xs font-bold uppercase tracking-wider ${scrolled ? 'text-af-blue dark:text-af-light' : 'text-white'}`}>
                 Hi, {user}
@@ -185,13 +172,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
                 <LogOut size={12} /> <span className="hidden sm:inline">Logout</span>
               </button>
             </div>
-          ) : (
-            <button
-              onClick={onLoginClick}
-              className={`flex items-center gap-1 px-3 py-1 rounded transition-colors ml-2 border ${scrolled ? 'bg-af-blue text-white border-af-blue hover:bg-blue-700' : 'bg-transparent text-white border-white hover:bg-white/20'}`}
-            >
-              <User size={12} /> Login
-            </button>
           )}
         </div>
       </div>
@@ -381,16 +361,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
             </nav>
 
             <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 grid grid-cols-2 gap-4">
-              {/* Mobile Login Button if not logged in */}
-              {!user && (
-                <button
-                  onClick={() => { onLoginClick(); setIsMenuOpen(false); }}
-                  className="col-span-2 flex items-center justify-center gap-2 p-4 bg-af-blue text-white rounded hover:bg-blue-700 transition"
-                >
-                  <User size={16} /> <span className="text-sm font-bold uppercase">Login</span>
-                </button>
-              )}
-
               <a href="#" className="flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                 <Calendar className="text-af-blue dark:text-af-light mb-2" />
                 <span className="text-xs font-bold uppercase text-gray-600 dark:text-gray-300">Calendar</span>
