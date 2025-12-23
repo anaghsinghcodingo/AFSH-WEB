@@ -56,6 +56,10 @@ const navItems: NavItem[] = [
     href: '/blog'
   },
   {
+    label: 'Gallery',
+    href: '/gallery'
+  },
+  {
     label: 'Contact',
     href: '#contact'
   },
