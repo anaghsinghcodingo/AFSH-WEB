@@ -1,5 +1,6 @@
 import React from 'react';
 import ParallaxCarousel from './parallax-carousel/ParallaxCarousel';
+import TopperSection from './TopperSection';
 import NoticeBoard from './NoticeBoard';
 import LatestNews from './LatestNews';
 import Footer from './Footer';
@@ -8,6 +9,9 @@ const HomePage: React.FC = () => {
     return (
         <>
             <ParallaxCarousel />
+
+            {/* Topper Section */}
+            <TopperSection />
 
             {/* Visual News Grid Section */}
             <section id="news">
