@@ -23,7 +23,17 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
 - **Philosophy Section** - Core values display
 - **Footer** - Contact and links
 
-### 3. Admission Page (NEW)
+### 3. Academics Page (NEW)
+- **Curriculum Section** - 4 educational levels (Primary through Senior Secondary)
+- **Departments** - 6 interactive departments with expandable details
+  - English, Mathematics, Science, Social Studies, Languages, Arts & Skills
+  - Faculty count, subjects offered, achievements, and department heads
+- **Academic Calendar** - Color-coded events throughout the year
+- **Top Scholars** - Featured academic achievers with percentages
+- **Key Highlights** - Faculty, library, labs, and tech facilities
+- Dark mode support and fully responsive design
+
+### 4. Admission Page (NEW)
 - **Admission Process** - 6-step visual guide
 - **Fee Structure** - Complete fee table with all classes
 - **Admission Inquiry Form** - Students can submit admission queries
@@ -32,7 +42,7 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
 - **Contact Information** - Office phone, email, and hours
 - Fully responsive design with dark mode support
 
-### 4. Student Life Page
+### 5. Student Life Page
 - **Houses Section** - Four houses with unique identities and colors
   - Arjan House (Blue), Sekhon House (Red), Subroto House (Yellow), Katre House (Green)
   - Each house has motto, house master, achievements, and member count
@@ -44,7 +54,7 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
   - Notable achievements showcase
 - Fully responsive design matching Air Force theme
 
-### 5. Gallery Page
+### 6. Gallery Page
 - Beautiful grid layout with hover effects
 - Category filters: All Events, Academics, Sports, Cultural, Campus Life, Awards
 - 20+ placeholder images (easily replaceable with real photos)
@@ -54,7 +64,7 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
 - Call-to-action section
 - Fully responsive design
 
-### 6. About & Blog Pages
+### 7. About & Blog Pages
 - About page with school information
 - Blog page for news articles
 - Individual post details
@@ -116,7 +126,23 @@ src/
 
 ## Recent Changes (December 24, 2025)
 
-### Admission Page (Latest)
+### Academics Page (Latest)
+- ✅ Created comprehensive Academics page
+- ✅ **Curriculum Section** - 4 levels with features and descriptions
+  - Primary (Classes I-V) - Foundation Building
+  - Upper Primary (Classes VI-VIII) - Concept Mastery
+  - Secondary (Classes IX-X) - Board Preparation
+  - Senior Secondary (Classes XI-XII) - Higher Learning
+- ✅ **Academic Departments** - 6 expandable departments
+  - English, Mathematics, Science, Social Studies, Languages, Arts & Skills
+  - Each with subjects, achievements, and department head info
+- ✅ **Academic Calendar** - Full year events and important dates
+- ✅ **Top Scholars Section** - Featured academic achievers
+- ✅ **Key Highlights** - Faculty, Library, Labs, Tech facilities
+- ✅ Full dark mode and responsive design
+- ✅ Updated Header navigation with /academics route
+
+### Admission Page
 - ✅ Created comprehensive Admission page
 - ✅ **Admission Process** - 6-step visual process flow
 - ✅ **Fee Structure** - Detailed table with all class fees
