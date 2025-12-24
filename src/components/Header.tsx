@@ -33,12 +33,12 @@ const navItems: NavItem[] = [
   },
   {
     label: 'Admissions',
-    href: '#admission',
+    href: '/admissions',
     subItems: [
-      { label: 'Admission Procedure', href: '#' },
-      { label: 'Fee Structure', href: '#' },
-      { label: 'Transfer Certificates', href: '#' },
-      { label: 'FAQs', href: '#' }
+      { label: 'Admission Procedure', href: '/admissions#procedure' },
+      { label: 'Fee Structure', href: '/admissions#fees' },
+      { label: 'Transfer Certificates', href: '/admissions#tc' },
+      { label: 'FAQs', href: '/admissions#faqs' }
     ]
   },
   {
@@ -120,6 +120,9 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     }
     else if (item.label === 'Student Life' && item.href.startsWith('/')) {
       onNavigate('student-life');
+    }
+    else if (item.label === 'Admissions' && item.href.startsWith('/')) {
+      onNavigate('admissions');
     }
     else if ((!subItem && item.href.startsWith('#')) || (subItem && subItem.href.startsWith('#'))) {
       onNavigate('home');

@@ -23,7 +23,16 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
 - **Philosophy Section** - Core values display
 - **Footer** - Contact and links
 
-### 3. Student Life Page (NEW)
+### 3. Admission Page (NEW)
+- **Admission Process** - 6-step visual guide
+- **Fee Structure** - Complete fee table with all classes
+- **Admission Inquiry Form** - Students can submit admission queries
+- **Transfer Certificate Section** - Procedure and documentation requirements
+- **FAQs** - 8 commonly asked questions with detailed answers
+- **Contact Information** - Office phone, email, and hours
+- Fully responsive design with dark mode support
+
+### 4. Student Life Page
 - **Houses Section** - Four houses with unique identities and colors
   - Arjan House (Blue), Sekhon House (Red), Subroto House (Yellow), Katre House (Green)
   - Each house has motto, house master, achievements, and member count
@@ -35,7 +44,7 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
   - Notable achievements showcase
 - Fully responsive design matching Air Force theme
 
-### 4. Gallery Page
+### 5. Gallery Page
 - Beautiful grid layout with hover effects
 - Category filters: All Events, Academics, Sports, Cultural, Campus Life, Awards
 - 20+ placeholder images (easily replaceable with real photos)
@@ -45,7 +54,7 @@ A React + Vite frontend application cloned from GitHub featuring a school websit
 - Call-to-action section
 - Fully responsive design
 
-### 5. About & Blog Pages
+### 6. About & Blog Pages
 - About page with school information
 - Blog page for news articles
 - Individual post details
@@ -107,7 +116,21 @@ src/
 
 ## Recent Changes (December 24, 2025)
 
-### Student Life Page (Latest)
+### Admission Page (Latest)
+- ✅ Created comprehensive Admission page
+- ✅ **Admission Process** - 6-step visual process flow
+- ✅ **Fee Structure** - Detailed table with all class fees
+- ✅ **Admission Inquiry Form** - Functional contact form with validation
+  - Student name, email, phone, class selection
+  - Guardian name, message fields
+  - Success confirmation message
+- ✅ **Transfer Certificate Section** - Procedure and requirements
+- ✅ **FAQs** - 8 comprehensive frequently asked questions
+- ✅ **Contact Information** - Office details and hours
+- ✅ Theme-consistent design matching entire website
+- ✅ Dark mode support
+
+### Student Life Page
 - ✅ Created comprehensive Student Life page
 - ✅ **The Four Houses** section with detailed cards:
   - **Arjan House** (Blue #2563EB) - "The Sky Guardians"
