@@ -9,6 +9,7 @@ const AboutPage = lazy(() => import('./components/AboutPage'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
 const PostDetails = lazy(() => import('./components/PostDetails'));
 const GalleryPage = lazy(() => import('./components/GalleryPage'));
+const StudentLifePage = lazy(() => import('./components/StudentLifePage'));
 
 // Loading spinner component
 const PageLoader = () => (
@@ -37,6 +38,7 @@ root.render(
                         <Route path="/blog" element={<BlogPage />} />
                         <Route path="/blog/:slug" element={<PostDetails />} />
                         <Route path="/gallery" element={<GalleryPage />} />
+                        <Route path="/student-life" element={<StudentLifePage />} />
                     </Routes>
                 </Suspense>
             </Layout>

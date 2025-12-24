@@ -43,12 +43,12 @@ const navItems: NavItem[] = [
   },
   {
     label: 'Student Life',
-    href: '#student-life',
+    href: '/student-life',
     subItems: [
-      { label: 'Houses', href: '#' },
-      { label: 'Clubs & Societies', href: '#' },
-      { label: 'Sports', href: '#' },
-      { label: 'NCC', href: '#' }
+      { label: 'Houses', href: '/student-life#houses' },
+      { label: 'Clubs & Societies', href: '/student-life#clubs' },
+      { label: 'Sports', href: '/student-life#sports' },
+      { label: 'NCC', href: '/student-life#ncc' }
     ]
   },
   {
@@ -117,6 +117,9 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     }
     else if (item.label === 'Gallery') {
       onNavigate('gallery');
+    }
+    else if (item.label === 'Student Life' && item.href.startsWith('/')) {
+      onNavigate('student-life');
     }
     else if ((!subItem && item.href.startsWith('#')) || (subItem && subItem.href.startsWith('#'))) {
       onNavigate('home');
