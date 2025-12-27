@@ -18,6 +18,7 @@ const HomePage: React.FC = () => {
             {/* Topper Section - Repositioned after news */}
             <TopperSection />
 
+            {/* Notice Board Section - Repositioned after TopperSection */}
             <section id="admission">
                 <NoticeBoard />
             </section>
