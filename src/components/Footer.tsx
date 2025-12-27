@@ -38,7 +38,8 @@ const Footer: React.FC = () => {
               <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Admission Procedure</Link></li>
               <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Fee Structure</Link></li>
               <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Transfer Certificate</Link></li>
-              <li><Link to="/academics" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Academic Curriculum</Link></li>
+              <li><Link to="/calendar" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Academic Calendar</Link></li>
+              <li><Link to="/alumni" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Alumni Network</Link></li>
             </ul>
           </div>
 

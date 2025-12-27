@@ -161,10 +161,10 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
       {/* Utility Bar */}
       <div className={`text-[11px] uppercase tracking-widest font-semibold transition-all duration-300 ${scrolled ? 'py-1 border-b border-gray-100 dark:border-gray-800' : 'py-0'}`}>
         <div className="container mx-auto px-6 flex justify-end items-center space-x-6">
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Calendar</a>
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Directory</a>
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Parents</a>
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Alumni</a>
+          <Link to="/calendar" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Calendar</Link>
+          <Link to="/alumni" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Alumni</Link>
+          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Students</a>
+          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Staff</a>
 
           {/* Theme Toggle Button */}
           <button
