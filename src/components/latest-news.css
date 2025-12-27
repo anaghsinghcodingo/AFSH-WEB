@@ -6,7 +6,7 @@
 
 .news-carousel {
   display: flex;
-  animation: scroll-news 40s linear infinite;
+  animation: scroll-news 40s linear 3 forwards;
   gap: 1rem;
   padding: 1rem;
 }
