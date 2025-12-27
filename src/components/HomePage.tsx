@@ -15,13 +15,13 @@ const HomePage: React.FC = () => {
                 <LatestNews />
             </section>
 
-            {/* Topper Section - Repositioned after news */}
-            <TopperSection />
-
-            {/* Notice Board Section - Repositioned after TopperSection */}
+            {/* Notice Board Section - Now after LatestNews */}
             <section id="admission">
                 <NoticeBoard />
             </section>
+
+            {/* Topper Section - Now after Notice Board */}
+            <TopperSection />
 
             {/* About/Vision Snippet Section */}
             <section id="academics" className="bg-white dark:bg-gray-900 py-12 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
