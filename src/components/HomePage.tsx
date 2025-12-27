@@ -10,13 +10,13 @@ const HomePage: React.FC = () => {
         <>
             <ParallaxCarousel />
 
-            {/* Topper Section */}
-            <TopperSection />
-
             {/* Visual News Grid Section */}
             <section id="news">
                 <LatestNews />
             </section>
+
+            {/* Topper Section - Repositioned after news */}
+            <TopperSection />
 
             <section id="admission">
                 <NoticeBoard />
