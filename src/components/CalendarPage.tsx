@@ -1,83 +1,72 @@
 import React from 'react';
-import { Calendar as CalendarIcon, Clock, MapPin, ChevronRight, Download } from 'lucide-react';
+import { Calendar as CalendarIcon, Download, ChevronRight } from 'lucide-react';
 
 const CalendarPage: React.FC = () => {
-  const events = [
-    {
-      month: 'January 2024',
-      items: [
-        { date: '1', title: 'New Year\'s Day', type: 'Holiday', icon: '🎆' },
-        { date: '15', title: 'Army Day Celebration', type: 'Event', icon: '🎖️' },
-        { date: '26', title: 'Republic Day Parade', type: 'National Day', icon: '🇮🇳' },
-      ]
-    },
-    {
-      month: 'February 2024',
-      items: [
-        { date: '10', title: 'Annual Day Function', type: 'Event', icon: '🎉' },
-        { date: '15-20', title: 'Final Examinations (X, XII)', type: 'Exam', icon: '✏️' },
-        { date: '24', title: 'Science Exhibition', type: 'Exhibition', icon: '🔬' },
-      ]
-    },
-    {
-      month: 'March 2024',
-      items: [
-        { date: '8', title: 'Maha Shivratri', type: 'Holiday', icon: '🪔' },
-        { date: '25', title: 'Holi', type: 'Holiday', icon: '🎨' },
-        { date: '31', title: 'Academic Session Ends', type: 'Academic', icon: '📅' },
-      ]
-    }
+  const academicCalendar = [
+    { month: 'April', event: 'Academic Year Begins', type: 'Start' },
+    { month: 'May-June', event: 'Summer Activities & Camps', type: 'Activity' },
+    { month: 'September', event: 'Mid-Term Examinations', type: 'Exam' },
+    { month: 'October', event: 'Sports & Cultural Week', type: 'Event' },
+    { month: 'December', event: 'Annual Examinations Begin', type: 'Exam' },
+    { month: 'January', event: 'Results Declared', type: 'Result' },
+    { month: 'February', event: 'Annual Day Celebrations', type: 'Event' },
+    { month: 'March', event: 'Board Exams (Classes X, XII)', type: 'Exam' },
   ];
 
+  const typeColors: Record<string, string> = {
+    'Start': 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800',
+    'Activity': 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800',
+    'Exam': 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800',
+    'Event': 'bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800',
+    'Result': 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800'
+  };
+
+  const typeIcons: Record<string, string> = {
+    'Start': '🚀',
+    'Activity': '🎯',
+    'Exam': '✏️',
+    'Event': '🎉',
+    'Result': '📊'
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 pt-32 pb-20">
-      {/* Header */}
-      <section className="bg-af-blue text-white py-16 mb-12">
-        <div className="container mx-auto px-4 text-center">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 pt-32 pb-20">
+      {/* Header Section */}
+      <section className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-16 mb-12">
+        <div className="absolute inset-0 opacity-50" style={{
+          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(76, 139, 245, 0.1) 0%, transparent 50%)',
+        }}></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <CalendarIcon className="w-16 h-16 mx-auto mb-4 text-af-gold" />
-          <h1 className="text-5xl font-serif font-bold mb-4">Academic Calendar</h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Stay updated with school events, holidays, and examination schedules for the academic session 2023-24
+          <h1 className="text-5xl font-serif font-bold mb-4 text-white">Academic Calendar 2024-25</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Important dates and events throughout the academic year
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-yellow-400 mx-auto mt-6"></div>
         </div>
       </section>
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Calendar Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {events.map((section, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
-                <div className="bg-gradient-to-r from-af-blue to-blue-700 px-8 py-4">
-                  <h2 className="text-2xl font-bold text-white">{section.month}</h2>
-                </div>
-                <div className="p-0">
-                  {section.items.map((event, eIdx) => (
-                    <div key={eIdx} className="flex items-center gap-6 p-6 border-b border-gray-50 dark:border-gray-700 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors group">
-                      <div className="flex-shrink-0 w-20 h-20 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex flex-col items-center justify-center text-af-blue dark:text-af-light border-2 border-transparent group-hover:border-af-blue dark:group-hover:border-af-light transition-all">
-                        <span className="text-2xl font-bold">{event.date}</span>
-                      </div>
-                      <div className="flex-grow">
-                        <div className="flex items-center gap-3 mb-1">
-                          <span className="text-xl">{event.icon}</span>
-                          <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${
-                            event.type === 'Holiday' ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400' :
-                            event.type === 'Exam' ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400' :
-                            'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
-                          }`}>
-                            {event.type}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-af-blue dark:group-hover:text-af-light transition-colors">
-                          {event.title}
-                        </h3>
-                      </div>
-                      <ChevronRight className="text-gray-300 dark:text-gray-600 group-hover:translate-x-1 transition-transform" />
+          <div className="lg:col-span-2">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+              {academicCalendar.map((event, idx) => (
+                <div key={idx} className={`rounded-xl p-6 border-l-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-between group ${typeColors[event.type]} border-l-af-blue`}>
+                  <div className="flex items-start gap-4">
+                    <span className="text-4xl">{typeIcons[event.type]}</span>
+                    <div>
+                      <p className="text-sm font-bold text-af-blue dark:text-af-light uppercase tracking-widest">{event.month}</p>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-1">{event.event}</h3>
+                      <span className="inline-block mt-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/50 dark:bg-gray-800/50">
+                        {event.type}
+                      </span>
                     </div>
-                  ))}
+                  </div>
+                  <ChevronRight className="text-gray-300 dark:text-gray-600 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Sidebar */}
@@ -88,14 +77,14 @@ const CalendarPage: React.FC = () => {
                 <button className="w-full flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-gray-700 hover:bg-af-blue hover:text-white transition-all group">
                   <div className="flex items-center gap-3">
                     <Download className="text-af-blue dark:text-af-light group-hover:text-white" size={20} />
-                    <span className="font-medium">Full Calendar 2023-24</span>
+                    <span className="font-medium">Academic Calendar 2024-25</span>
                   </div>
                   <span className="text-xs font-bold text-gray-400 group-hover:text-blue-200">PDF</span>
                 </button>
                 <button className="w-full flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-gray-700 hover:bg-af-blue hover:text-white transition-all group">
                   <div className="flex items-center gap-3">
                     <Download className="text-af-blue dark:text-af-light group-hover:text-white" size={20} />
-                    <span className="font-medium">Holiday List 2024</span>
+                    <span className="font-medium">List of Holidays 2024</span>
                   </div>
                   <span className="text-xs font-bold text-gray-400 group-hover:text-blue-200">PDF</span>
                 </button>
@@ -106,7 +95,7 @@ const CalendarPage: React.FC = () => {
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-4">Important Note</h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  Dates are subject to change based on government orders or school administration decisions. Parents will be notified via SMS/App for any immediate changes.
+                  Academic dates and event schedules are subject to change based on CBSE guidelines or school administration decisions.
                 </p>
               </div>
               <div className="absolute -right-8 -bottom-8 opacity-10">

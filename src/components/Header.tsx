@@ -163,8 +163,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
         <div className="container mx-auto px-6 flex justify-end items-center space-x-6">
           <Link to="/calendar" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Calendar</Link>
           <Link to="/alumni" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Alumni</Link>
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Students</a>
-          <a href="#" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Staff</a>
 
           {/* Theme Toggle Button */}
           <button
