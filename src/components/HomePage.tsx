@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ParallaxCarousel from './parallax-carousel/ParallaxCarousel';
 import TopperSection from './TopperSection';
 import NoticeBoard from './NoticeBoard';
@@ -54,7 +55,7 @@ const HomePage: React.FC = () => {
                             <h2 className="text-3xl font-serif font-bold">Campus Life</h2>
                             <p className="text-gray-400 mt-2">Glimpses of activities at AF School Hindan</p>
                         </div>
-                        <button className="hidden md:block border border-white px-6 py-2 hover:bg-white hover:text-black transition uppercase text-xs font-bold tracking-widest">View Gallery</button>
+                        <Link to="/gallery" className="hidden md:block border border-white px-6 py-2 hover:bg-white hover:text-black transition uppercase text-xs font-bold tracking-widest">View Gallery</Link>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                         <img src="https://picsum.photos/seed/campus1/400/300" className="w-full h-48 object-cover rounded hover:opacity-90 transition" alt="Campus 1" />
@@ -62,7 +63,7 @@ const HomePage: React.FC = () => {
                         <img src="https://picsum.photos/seed/campus3/400/300" className="w-full h-48 object-cover rounded hover:opacity-90 transition" alt="Campus 3" />
                         <img src="https://picsum.photos/seed/campus4/400/300" className="w-full h-48 object-cover rounded hover:opacity-90 transition" alt="Campus 4" />
                     </div>
-                    <button className="md:hidden mt-6 w-full border border-white px-6 py-3 hover:bg-white hover:text-black transition uppercase text-xs font-bold tracking-widest">View Gallery</button>
+                    <Link to="/gallery" className="md:hidden mt-6 w-full border border-white px-6 py-3 hover:bg-white hover:text-black transition uppercase text-xs font-bold tracking-widest text-center block">View Gallery</Link>
                 </div>
             </section>
 
