@@ -146,15 +146,15 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
 
   const headerClasses = scrolled
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-0'
-    : 'bg-white dark:bg-gray-900 py-4 shadow-sm';
+    : 'bg-gradient-to-b from-black/60 to-transparent dark:from-black/80 py-4 shadow-none';
 
-  const textClasses = 'text-gray-800 dark:text-gray-100';
-  const utilityTextClasses = 'text-gray-600 dark:text-gray-400';
-  const logoMainClasses = 'text-gray-900 dark:text-white';
-  const logoSubClasses = scrolled ? 'text-af-blue dark:text-af-light' : 'text-af-blue dark:text-af-light opacity-80';
-  const navHoverClasses = 'hover:text-af-blue dark:hover:text-af-light';
-  const searchIconColor = 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light';
-  const menuLineClasses = 'bg-gray-800 dark:bg-white';
+  const textClasses = scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white dark:text-white';
+  const utilityTextClasses = scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-gray-300 dark:text-gray-400';
+  const logoMainClasses = scrolled ? 'text-gray-900 dark:text-white' : 'text-white dark:text-white';
+  const logoSubClasses = scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-300 dark:text-gray-400';
+  const navHoverClasses = scrolled ? 'hover:text-af-blue dark:hover:text-af-light' : 'hover:text-af-light dark:hover:text-af-light';
+  const searchIconColor = scrolled ? 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-af-light';
+  const menuLineClasses = scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white dark:bg-white';
 
   return (
     <header className={`w-full z-50 fixed top-0 left-0 transition-all duration-500 ease-in-out font-sans ${headerClasses}`}>
@@ -167,20 +167,20 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-gray-800 dark:text-gray-100 hover:text-af-blue dark:hover:text-white'}`}
+            className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-white'}`}
             aria-label="Toggle Dark Mode"
           >
             {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
           {user && (
-            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-gray-200 dark:border-white/20">
-              <span className={`text-xs font-bold uppercase tracking-wider ${scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-800 dark:text-gray-100'}`}>
+            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-gray-400 dark:border-white/20">
+              <span className={`text-xs font-bold uppercase tracking-wider ${scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-300 dark:text-gray-300'}`}>
                 Hi, {user}
               </span>
               <button
                 onClick={onLogout}
-                className={`flex items-center gap-1 px-3 py-1 rounded transition-colors border ${scrolled ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-900 hover:bg-red-100 dark:hover:bg-red-900/40' : 'bg-red-500/20 text-gray-800 dark:text-white border-gray-200 dark:border-white/20 hover:bg-red-500/40'}`}
+                className={`flex items-center gap-1 px-3 py-1 rounded transition-colors border ${scrolled ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-900 hover:bg-red-100 dark:hover:bg-red-900/40' : 'bg-red-500/40 text-white dark:text-white border-red-400 dark:border-red-400 hover:bg-red-500/60'}`}
                 title="Logout"
               >
                 <LogOut size={12} /> <span className="hidden sm:inline">Logout</span>
@@ -227,7 +227,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
                   {item.href.startsWith('/') ? (
                     <Link
                       to={item.href}
-                      className={`px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors relative z-10 ${textClasses} ${navHoverClasses}`}
+                      className={`px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors relative z-10 ${scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white dark:text-white'} ${navHoverClasses}`}
                     >
                       {item.label}
                     </Link>
@@ -235,7 +235,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
                     <a
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item)}
-                      className={`px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors relative z-10 ${textClasses} ${navHoverClasses}`}
+                      className={`px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors relative z-10 ${scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white dark:text-white'} ${navHoverClasses}`}
                     >
                       {item.label}
                     </a>
