@@ -43,87 +43,62 @@ const newsItems: NewsItem[] = [
 
 const LatestNews: React.FC = () => {
   return (
-    <section className="bg-white dark:bg-gray-900 py-8 transition-colors duration-300">
-      <div className="w-full">
+    <section className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="container mx-auto px-4 mb-6">
+        <div className="mb-8 flex justify-between items-end">
           <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">Latest News</h2>
-        </div>
-        
-        {/* News Carousel - Continuous Scrolling */}
-        <div className="news-carousel-container dark:bg-gray-800">
-          <div className="news-carousel">
-            {/* First set of items */}
-            {newsItems.map((item) => (
-              <div 
-                key={item.id} 
-                className={`news-carousel-item relative h-[350px] group overflow-hidden cursor-pointer border-t-4 ${item.borderColor} bg-gray-800 rounded-lg flex-shrink-0 w-[90vw] md:w-[350px]`}
-              >
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                />
-                
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
-                
-                <div className={`absolute inset-0 p-6 flex flex-col ${item.alignment === 'center' ? 'justify-center items-center text-center' : 'justify-end items-center text-center pb-8'}`}>
-                  <h3 className="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-4 drop-shadow-lg">
-                    {item.title}
-                  </h3>
-                  
-                  {item.hasButton && (
-                    <a 
-                      href={item.link} 
-                      className="inline-block px-6 py-2 border border-white text-white font-serif italic text-sm hover:bg-white hover:text-black transition-colors duration-300"
-                    >
-                      Read Story
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-            
-            {/* Duplicate set for seamless loop */}
-            {newsItems.map((item) => (
-              <div 
-                key={`${item.id}-dup`} 
-                className={`news-carousel-item relative h-[350px] group overflow-hidden cursor-pointer border-t-4 ${item.borderColor} bg-gray-800 rounded-lg flex-shrink-0 w-[90vw] md:w-[350px]`}
-              >
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                />
-                
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
-                
-                <div className={`absolute inset-0 p-6 flex flex-col ${item.alignment === 'center' ? 'justify-center items-center text-center' : 'justify-end items-center text-center pb-8'}`}>
-                  <h3 className="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-4 drop-shadow-lg">
-                    {item.title}
-                  </h3>
-                  
-                  {item.hasButton && (
-                    <a 
-                      href={item.link} 
-                      className="inline-block px-6 py-2 border border-white text-white font-serif italic text-sm hover:bg-white hover:text-black transition-colors duration-300"
-                    >
-                      Read Story
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* View All Redirect Link */}
-        <div className="container mx-auto px-4 mt-6 flex justify-end">
+          {/* View All Redirect Link */}
           <a 
             href="https://airforceschoolhindan.in/news" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-gray-500 dark:text-gray-400 font-serif italic text-lg hover:text-af-blue dark:hover:text-af-light transition-colors border-b border-transparent hover:border-af-blue dark:hover:border-af-light"
+            className="hidden md:block text-gray-500 dark:text-gray-400 font-serif italic text-lg hover:text-af-blue dark:hover:text-af-light transition-colors border-b border-transparent hover:border-af-blue dark:hover:border-af-light"
+          >
+            View All News
+          </a>
+        </div>
+        
+        {/* News Grid - Static 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {newsItems.map((item) => (
+            <div 
+              key={item.id} 
+              className={`relative h-[400px] group overflow-hidden cursor-pointer border-t-4 ${item.borderColor} bg-gray-800 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl`}
+            >
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
+              
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
+              
+              <div className={`absolute inset-0 p-8 flex flex-col ${item.alignment === 'center' ? 'justify-center items-center text-center' : 'justify-end items-center text-center pb-12'}`}>
+                <h3 className="text-white font-serif font-bold text-2xl leading-tight mb-6 drop-shadow-xl">
+                  {item.title}
+                </h3>
+                
+                {item.hasButton && (
+                  <a 
+                    href={item.link} 
+                    className="inline-block px-8 py-2.5 border-2 border-white text-white font-serif italic text-sm hover:bg-white hover:text-black transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  >
+                    Read Story
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Mobile View All Link */}
+        <div className="mt-8 md:hidden flex justify-center">
+          <a 
+            href="https://airforceschoolhindan.in/news" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-500 dark:text-gray-400 font-serif italic text-lg hover:text-af-blue transition-colors border-b border-af-blue"
           >
             View All News
           </a>
