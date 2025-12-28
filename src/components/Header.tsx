@@ -146,18 +146,18 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
 
   const headerClasses = scrolled
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-0'
-    : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4';
+    : 'bg-white dark:bg-gray-900 py-4 shadow-sm';
 
-  const textClasses = scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white';
-  const utilityTextClasses = scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200';
-  const logoMainClasses = scrolled ? 'text-gray-900 dark:text-white' : 'text-white';
-  const logoSubClasses = scrolled ? 'text-af-blue dark:text-af-light' : 'text-af-gold';
-  const navHoverClasses = scrolled ? 'hover:text-af-blue dark:hover:text-af-light' : 'hover:text-af-gold';
-  const searchIconColor = scrolled ? 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light' : 'text-white/80 hover:text-white';
+  const textClasses = 'text-gray-800 dark:text-gray-100';
+  const utilityTextClasses = 'text-gray-600 dark:text-gray-400';
+  const logoMainClasses = 'text-gray-900 dark:text-white';
+  const logoSubClasses = scrolled ? 'text-af-blue dark:text-af-light' : 'text-af-blue dark:text-af-light opacity-80';
+  const navHoverClasses = 'hover:text-af-blue dark:hover:text-af-light';
+  const searchIconColor = 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light';
+  const menuLineClasses = 'bg-gray-800 dark:bg-white';
 
   return (
     <header className={`w-full z-50 fixed top-0 left-0 transition-all duration-500 ease-in-out font-sans ${headerClasses}`}>
-
       {/* Utility Bar */}
       <div className={`text-[11px] uppercase tracking-widest font-semibold transition-all duration-300 ${scrolled ? 'py-1 border-b border-gray-100 dark:border-gray-800' : 'py-0'}`}>
         <div className="container mx-auto px-6 flex justify-end items-center space-x-6">
@@ -167,20 +167,20 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-af-gold'}`}
+            className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-gray-800 dark:text-gray-100 hover:text-af-blue dark:hover:text-white'}`}
             aria-label="Toggle Dark Mode"
           >
             {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
           {user && (
-            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-white/20">
-              <span className={`text-xs font-bold uppercase tracking-wider ${scrolled ? 'text-af-blue dark:text-af-light' : 'text-white'}`}>
+            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-gray-200 dark:border-white/20">
+              <span className={`text-xs font-bold uppercase tracking-wider ${scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-800 dark:text-gray-100'}`}>
                 Hi, {user}
               </span>
               <button
                 onClick={onLogout}
-                className={`flex items-center gap-1 px-3 py-1 rounded transition-colors border ${scrolled ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-900 hover:bg-red-100 dark:hover:bg-red-900/40' : 'bg-red-500/20 text-white border-white/20 hover:bg-red-500/40'}`}
+                className={`flex items-center gap-1 px-3 py-1 rounded transition-colors border ${scrolled ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-900 hover:bg-red-100 dark:hover:bg-red-900/40' : 'bg-red-500/20 text-gray-800 dark:text-white border-gray-200 dark:border-white/20 hover:bg-red-500/40'}`}
                 title="Logout"
               >
                 <LogOut size={12} /> <span className="hidden sm:inline">Logout</span>
@@ -281,9 +281,9 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
           >
             <span className="sr-only">Open menu</span>
             <div className="flex flex-col gap-1.5 items-end">
-              <span className={`block w-8 h-0.5 transition-colors ${scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white'}`}></span>
-              <span className={`block w-6 h-0.5 transition-colors ${scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white'}`}></span>
-              <span className={`block w-8 h-0.5 transition-colors ${scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white'}`}></span>
+              <span className={`block w-8 h-0.5 transition-colors ${menuLineClasses}`}></span>
+              <span className={`block w-6 h-0.5 transition-colors ${menuLineClasses}`}></span>
+              <span className={`block w-8 h-0.5 transition-colors ${menuLineClasses}`}></span>
             </div>
           </button>
         </div>
