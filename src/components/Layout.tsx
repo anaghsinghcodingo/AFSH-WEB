@@ -107,8 +107,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             />
 
             <div
-                className="relative z-10 bg-white dark:bg-gray-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 ease-out min-h-screen"
-                style={{ marginBottom: `${footerHeight}px` }}
+                className="relative z-10 bg-white dark:bg-gray-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out min-h-screen animate-fade-in"
+                style={{ marginBottom: `${footerHeight}px`, transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
             >
                 <main>
                     {children}

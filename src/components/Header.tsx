@@ -157,20 +157,21 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
   const menuLineClasses = scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white dark:bg-white';
 
   return (
-    <header className={`w-full z-50 fixed top-0 left-0 transition-all duration-500 ease-in-out font-sans ${headerClasses}`}>
+    <header className={`w-full z-50 fixed top-0 left-0 transition-all duration-700 ease-in-out font-sans ${headerClasses}`} style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
       {/* Utility Bar */}
-      <div className={`text-[11px] uppercase tracking-widest font-semibold transition-all duration-300 ${scrolled ? 'py-1 border-b border-gray-100 dark:border-gray-800' : 'py-0'}`}>
+      <div className={`text-[11px] uppercase tracking-widest font-semibold transition-all duration-500 ${scrolled ? 'py-1 border-b border-gray-100 dark:border-gray-800' : 'py-0'}`} style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
         <div className="container mx-auto px-6 flex justify-end items-center space-x-6">
-          <Link to="/calendar" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Calendar</Link>
-          <Link to="/alumni" className={`hidden md:block transition-colors ${utilityTextClasses} hover:text-af-light`}>Alumni</Link>
+          <Link to="/calendar" className={`hidden md:block transition-all duration-400 ease-out ${utilityTextClasses} hover:text-af-light`}>Calendar</Link>
+          <Link to="/alumni" className={`hidden md:block transition-all duration-400 ease-out ${utilityTextClasses} hover:text-af-light`}>Alumni</Link>
 
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-white'}`}
+            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-500 ease-out ml-4 ${scrolled ? 'text-gray-600 hover:text-af-blue dark:text-gray-300 dark:hover:text-white' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-white'}`}
             aria-label="Toggle Dark Mode"
+            style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
           >
-            {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+            {theme === 'dark' ? <Sun size={14} className="transition-transform duration-500" /> : <Moon size={14} className="transition-transform duration-500" />}
           </button>
 
           {user && (
@@ -202,13 +203,14 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
             <img
               src="https://ecolearn.pages.dev/img/logo.png"
               alt="Air Force School Logo"
-              className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+              className="w-14 h-14 object-contain group-hover:scale-110 transition-all duration-600 ease-out drop-shadow-md"
+              style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}
             />
             <div className="flex flex-col">
-              <span className={`text-xl md:text-2xl font-serif font-bold leading-tight tracking-tight uppercase transition-colors duration-300 ${logoMainClasses}`}>
+              <span className={`text-xl md:text-2xl font-serif font-bold leading-tight tracking-tight uppercase transition-all duration-600 ease-out ${logoMainClasses}`} style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
                 Air Force School
               </span>
-              <span className={`text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors duration-300 ${logoSubClasses}`}>
+              <span className={`text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-700 ease-out ${logoSubClasses}`} style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
                 Hindan, Ghaziabad
               </span>
             </div>
@@ -243,7 +245,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
 
                   {/* Dropdown Menu */}
                   {item.subItems && (
-                    <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-400 ease-out transform translate-y-3 group-hover:translate-y-0 z-50" style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
                       <div className="w-64 bg-white dark:bg-gray-800 shadow-xl border-t-4 border-af-blue rounded-b-md overflow-hidden">
                         <ul className="py-2">
                           {item.subItems.map((sub) => (
@@ -251,7 +253,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
                               <a
                                 href={sub.href}
                                 onClick={(e) => handleNavClick(e, item, sub)}
-                                className="block px-6 py-3 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-af-blue dark:hover:text-af-light transition-colors border-l-2 border-transparent hover:border-af-blue font-medium"
+                                className="block px-6 py-3 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-af-blue dark:hover:text-af-light transition-all duration-300 ease-out border-l-2 border-transparent hover:border-af-blue font-medium"
                               >
                                 {sub.label}
                               </a>

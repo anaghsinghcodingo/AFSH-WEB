@@ -23,9 +23,9 @@ const Footer: React.FC = () => {
               Registered with the Indian Air Force Educational & Cultural Society. We are committed to nurturing excellence in education and character building.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition"><Facebook size={16} /></a>
-              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition"><Twitter size={16} /></a>
-              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition"><Instagram size={16} /></a>
+              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1"><Facebook size={16} /></a>
+              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1"><Twitter size={16} /></a>
+              <a href="#" className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-af-blue transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1"><Instagram size={16} /></a>
             </div>
           </div>
 
@@ -33,13 +33,13 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-serif font-bold mb-6 border-l-4 border-af-gold pl-3">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li><Link to="/about" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> About Us</Link></li>
-              <li><Link to="/about#admin" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Administration</Link></li>
-              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Admission Procedure</Link></li>
-              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Fee Structure</Link></li>
-              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Transfer Certificate</Link></li>
-              <li><Link to="/calendar" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Academic Calendar</Link></li>
-              <li><Link to="/alumni" className="hover:text-white flex items-center gap-2 transition-colors"><ArrowRight size={14} /> Alumni Network</Link></li>
+              <li><Link to="/about" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> About Us</Link></li>
+              <li><Link to="/about#admin" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Administration</Link></li>
+              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Admission Procedure</Link></li>
+              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Fee Structure</Link></li>
+              <li><Link to="/admissions" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Transfer Certificate</Link></li>
+              <li><Link to="/calendar" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Academic Calendar</Link></li>
+              <li><Link to="/alumni" className="hover:text-white flex items-center gap-2 transition-all duration-400 ease-out group hover:translate-x-1"><ArrowRight size={14} className="transition-transform duration-400 group-hover:translate-x-1" /> Alumni Network</Link></li>
             </ul>
           </div>
 
