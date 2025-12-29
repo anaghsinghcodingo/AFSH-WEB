@@ -32,7 +32,7 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-700">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-af-blue to-blue-700 dark:from-gray-800 dark:to-gray-900 text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-af-blue to-blue-700 dark:from-gray-800 dark:to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-af-gold rounded-full blur-3xl"></div>
