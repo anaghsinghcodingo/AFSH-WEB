@@ -118,6 +118,9 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     else if (item.label === 'Gallery') {
       onNavigate('gallery');
     }
+    else if (item.label === 'Contact') {
+      navigate('/contact');
+    }
     else if (item.label === 'Student Life' && item.href.startsWith('/')) {
       onNavigate('student-life');
     }
