@@ -83,7 +83,7 @@ const BlogPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white pb-12 transition-colors duration-300">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white pb-20 pt-32 transition-colors duration-300">
 
             {/* Header Section */}
             <div className="relative text-white pt-32 pb-16 mb-12 overflow-hidden">

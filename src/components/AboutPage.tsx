@@ -260,7 +260,7 @@ const prtFaculty: FacultyMember[] = [
 
 const AboutPage: React.FC = () => {
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen pt-32 pb-20">
             <Suspense fallback={<div>Loading background...</div>}>
                 <Silk
                     speed={3}
