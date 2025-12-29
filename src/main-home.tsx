@@ -12,7 +12,7 @@ const GalleryPage = lazy(() => import('./components/GalleryPage'));
 const StudentLifePage = lazy(() => import('./components/StudentLifePage'));
 const AdmissionPage = lazy(() => import('./components/AdmissionPage'));
 const AcademicsPage = lazy(() => import('./components/AcademicsPage'));
-const CalendarPage = lazy(() => import('./components/CalendarPage'));
+const CalendarPageNew = lazy(() => import('./components/CalendarPageNew'));
 const AlumniPage = lazy(() => import('./components/AlumniPage'));
 const ContactPage = lazy(() => import('./components/ContactPage'));
 
@@ -46,7 +46,7 @@ root.render(
                         <Route path="/student-life" element={<StudentLifePage />} />
                         <Route path="/admissions" element={<AdmissionPage />} />
                         <Route path="/academics" element={<AcademicsPage />} />
-                        <Route path="/calendar" element={<CalendarPage />} />
+                        <Route path="/calendar" element={<CalendarPageNew />} />
                         <Route path="/alumni" element={<AlumniPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                     </Routes>
