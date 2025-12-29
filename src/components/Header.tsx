@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Search, User, Calendar, GraduationCap, MapPin, Sun, Moon, LogOut } from 'lucide-react';
 import { NavItem } from '../types';
 
@@ -67,14 +67,10 @@ const navItems: NavItem[] = [
 
 const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigate }) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
-
-  // Determine if we're on the home page
-  const isHomePage = location.pathname === '/';
 
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -151,29 +147,17 @@ const Header: React.FC<HeaderProps> = ({ user, onLoginClick, onLogout, onNavigat
     }
   };
 
-  // Get navbar background based on page
-  const getNavbarBackground = () => {
-    // Home page: keep original dark gradient with scroll transition
-    if (isHomePage) {
-      return scrolled
-        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-0'
-        : 'bg-gradient-to-b from-black/60 to-transparent dark:from-black/80 py-4 shadow-none';
-    }
-    
-    // Other pages: match hero section colors (all blue-based)
-    return 'bg-gradient-to-r from-af-blue/95 to-blue-700/95 dark:from-gray-800/95 dark:to-gray-900/95 backdrop-blur-md shadow-lg py-4';
-  };
+  const headerClasses = scrolled
+    ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-0'
+    : 'bg-gradient-to-b from-black/60 to-transparent dark:from-black/80 py-4 shadow-none';
 
-  const headerClasses = getNavbarBackground();
-
-  // Text colors: on home page they change with scroll; on other pages they stay white
-  const textClasses = isHomePage ? (scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white dark:text-white') : 'text-white dark:text-white';
-  const utilityTextClasses = isHomePage ? (scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-gray-300 dark:text-gray-400') : 'text-gray-100 dark:text-gray-100';
-  const logoMainClasses = isHomePage ? (scrolled ? 'text-gray-900 dark:text-white' : 'text-white dark:text-white') : 'text-white dark:text-white';
-  const logoSubClasses = isHomePage ? (scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-300 dark:text-gray-400') : 'text-gray-200 dark:text-gray-200';
-  const navHoverClasses = isHomePage ? (scrolled ? 'hover:text-af-blue dark:hover:text-af-light' : 'hover:text-af-light dark:hover:text-af-light') : 'hover:text-af-gold dark:hover:text-af-gold';
-  const searchIconColor = isHomePage ? (scrolled ? 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-af-light') : 'text-gray-100 hover:text-af-gold dark:text-gray-100 dark:hover:text-af-gold';
-  const menuLineClasses = isHomePage ? (scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white dark:bg-white') : 'bg-white dark:bg-white';
+  const textClasses = scrolled ? 'text-gray-800 dark:text-gray-100' : 'text-white dark:text-white';
+  const utilityTextClasses = scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-gray-300 dark:text-gray-400';
+  const logoMainClasses = scrolled ? 'text-gray-900 dark:text-white' : 'text-white dark:text-white';
+  const logoSubClasses = scrolled ? 'text-af-blue dark:text-af-light' : 'text-gray-300 dark:text-gray-400';
+  const navHoverClasses = scrolled ? 'hover:text-af-blue dark:hover:text-af-light' : 'hover:text-af-light dark:hover:text-af-light';
+  const searchIconColor = scrolled ? 'text-gray-500 hover:text-af-blue dark:text-gray-300 dark:hover:text-af-light' : 'text-gray-300 hover:text-af-light dark:text-gray-300 dark:hover:text-af-light';
+  const menuLineClasses = scrolled ? 'bg-gray-800 dark:bg-white' : 'bg-white dark:bg-white';
 
   return (
     <header className={`w-full z-50 fixed top-0 left-0 transition-all duration-700 ease-in-out font-sans ${headerClasses}`} style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
