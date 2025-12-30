@@ -10,13 +10,9 @@ const HomePage: React.FC = () => {
     return (
         <>
             <ParallaxCarousel />
+            <LatestNews />
 
-            {/* Visual News Grid Section */}
-            <section id="news">
-                <LatestNews />
-            </section>
-
-            {/* Notice Board Section - Now after LatestNews */}
+            {/* Notice Board Section - After Latest News */}
             <section id="admission">
                 <NoticeBoard />
             </section>
@@ -70,6 +66,7 @@ const HomePage: React.FC = () => {
             <section id="contact">
                 <Footer />
             </section>
+
         </>
     );
 };

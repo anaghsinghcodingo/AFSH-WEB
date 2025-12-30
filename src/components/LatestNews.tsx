@@ -45,21 +45,7 @@ const LatestNews: React.FC = () => {
   return (
     <section className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-8 flex justify-between items-end">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">Latest News</h2>
-          {/* View All Redirect Link */}
-          <a 
-            href="https://airforceschoolhindan.in/news" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hidden md:block text-gray-500 dark:text-gray-400 font-serif italic text-lg hover:text-af-blue dark:hover:text-af-light transition-colors border-b border-transparent hover:border-af-blue dark:hover:border-af-light"
-          >
-            View All News
-          </a>
-        </div>
-        
-        {/* News Grid - Static 3 columns */}
+        {/* News Grid - Static 3 columns - No Heading */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {newsItems.map((item) => (
             <div 
@@ -93,18 +79,6 @@ const LatestNews: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-        
-        {/* Mobile View All Link */}
-        <div className="mt-8 md:hidden flex justify-center">
-          <a 
-            href="https://airforceschoolhindan.in/news" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-gray-500 dark:text-gray-400 font-serif italic text-lg hover:text-af-blue transition-colors border-b border-af-blue"
-          >
-            View All News
-          </a>
         </div>
       </div>
     </section>
