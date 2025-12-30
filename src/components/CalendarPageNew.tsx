@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 interface CalendarEvent {
   date: number;
@@ -12,6 +12,7 @@ interface CalendarEvent {
 
 const CalendarPageNew: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 3, 1));
+  const [selectedDate, setSelectedDate] = useState<number | null>(null);
 
   const events: CalendarEvent[] = [
     { date: 15, month: 3, year: 2024, title: 'Math Olympiad', type: 'exam', color: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300' },
@@ -53,6 +54,8 @@ const CalendarPageNew: React.FC = () => {
 
   const prevMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
   const nextMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+
+  const selectedDateEvents = selectedDate ? getEventsForDate(selectedDate) : [];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 pt-32 pb-20 transition-colors duration-700">
@@ -96,9 +99,12 @@ const CalendarPageNew: React.FC = () => {
             return (
               <div
                 key={idx}
+                onClick={() => day && dayEvents.length > 0 && setSelectedDate(day)}
                 className={`min-h-32 p-2 rounded-lg border transition-all duration-300 ${
                   day
-                    ? 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-af-blue dark:hover:border-af-light cursor-pointer transform hover:scale-105'
+                    ? dayEvents.length > 0
+                      ? 'bg-white dark:bg-gray-900 border-af-blue dark:border-af-light hover:shadow-lg hover:border-af-blue dark:hover:border-af-light cursor-pointer transform hover:scale-105'
+                      : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 cursor-default hover:scale-100'
                     : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'
                 }`}
               >
@@ -116,7 +122,7 @@ const CalendarPageNew: React.FC = () => {
                         </div>
                       ))}
                       {dayEvents.length > 2 && (
-                        <div className="text-xs text-gray-500 dark:text-gray-400 px-1 font-semibold">+{dayEvents.length - 2} more</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 px-1 font-semibold cursor-pointer hover:text-af-blue dark:hover:text-af-light">+{dayEvents.length - 2} more</div>
                       )}
                     </div>
                   </>
@@ -167,6 +173,63 @@ const CalendarPageNew: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      {selectedDate && selectedDateEvents.length > 0 && (
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-300">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto transform transition-all duration-300 scale-100">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 flex items-center justify-between">
+              <div>
+                <h3 className="text-2xl font-serif font-bold">
+                  {monthNames[currentDate.getMonth()]} {selectedDate}, {currentDate.getFullYear()}
+                </h3>
+                <p className="text-blue-100 text-sm mt-1">{selectedDateEvents.length} event{selectedDateEvents.length !== 1 ? 's' : ''} scheduled</p>
+              </div>
+              <button
+                onClick={() => setSelectedDate(null)}
+                className="p-2 hover:bg-white/20 rounded-lg transition-all duration-300 transform hover:scale-110"
+              >
+                <X size={28} />
+              </button>
+            </div>
+
+            {/* Events List */}
+            <div className="p-6 space-y-4">
+              {selectedDateEvents.map((event, idx) => (
+                <div
+                  key={idx}
+                  className={`p-5 rounded-xl border-l-4 transition-all duration-300 transform hover:shadow-lg hover:scale-102 ${event.color}`}
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold mb-2">{event.title}</h4>
+                      <div className="flex items-center gap-4 text-sm opacity-75">
+                        <span className="inline-block px-3 py-1 bg-white/50 dark:bg-black/30 rounded-full font-semibold uppercase tracking-widest">
+                          {event.type}
+                        </span>
+                        <span className="font-medium">
+                          {monthNames[event.month]} {event.date}, {event.year}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="sticky bottom-0 bg-gray-100 dark:bg-gray-700 p-4 flex justify-end border-t border-gray-200 dark:border-gray-600">
+              <button
+                onClick={() => setSelectedDate(null)}
+                className="px-6 py-2 bg-af-blue text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
